@@ -11,13 +11,16 @@ import { GarciaComponent } from './entregas/garcia/component/garciaComponent/gar
 import { PallasComponent } from './entregas/pallas/component/pallasComponent/pallasComponent';
 import { PalomaresComponent } from './entregas/palomares/component/palomaresComponent/palomaresComponent';
 import { PavonComponent } from './entregas/pavon/component/pavonComponent/pavonComponent';
-import { ReynaComponent } from './entregas/reyna/component/reynaComponent/reynaComponent';
+import { ReynaComponent } from './entregas/reyna/components/reynaComponent/reynaComponent';
 import { SalinasComponent } from './entregas/salinas/component/salinasComponent/salinasComponent';
 import { SemperteguiComponent } from './entregas/sempertegui/component/semperteguiComponent/semperteguiComponent';
 import { SilvestreComponent } from './entregas/silvestre/component/silvestreComponent/silvestreComponent';
 import { SoaresComponent } from './entregas/soares/component/soaresComponent/soaresComponent';
 import { UskiComponent } from './entregas/uski/component/uskiComponent/uskiComponent';
 import { ZanonComponent } from './entregas/zanon/component/zanonComponent/zanonComponent';
+/** Mis componentes */
+import { ProductListRoutedComponent } from './entregas/reyna/components/product-list-routed/product-list-routed';
+import { ProductDetailRoutedComponent } from './entregas/reyna/components/product-detail-routed/product-detail-routed';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -33,7 +36,13 @@ export const routes: Routes = [
     { path: 'pallas', component: PallasComponent },
     { path: 'palomares', component: PalomaresComponent },
     { path: 'pavon', component: PavonComponent },
+    
+    /* mis rutas */
     { path: 'reyna', component: ReynaComponent },
+    { path: 'reyna/list', component: ProductListRoutedComponent }, 
+    { path: 'reyna/detail', component: ProductDetailRoutedComponent },
+
+
     { path: 'salinas', component: SalinasComponent },
     { path: 'sempertegui', component: SemperteguiComponent },
     { path: 'silvestre', component: SilvestreComponent },
