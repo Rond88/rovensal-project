@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { ProductService } from '../../service/product.service';
 import { Product } from '../../model/product.model';
 import { ProductCardUnroutedComponent } from '../product-card-unrouted/product-card-unrouted';
+import { NavbarUnroutedComponent } from "../navbar-unrouted/navbar-unrouted";
+import { HeaderUnrouted } from "../header-unrouted/header-unrouted";
 
 @Component({
   selector: 'app-product-list-routed',
-  imports: [ProductCardUnroutedComponent],
+  imports: [ProductCardUnroutedComponent, HeaderUnrouted],
   templateUrl: './product-list-routed.html',
   styleUrl: './product-list-routed.css',
 })

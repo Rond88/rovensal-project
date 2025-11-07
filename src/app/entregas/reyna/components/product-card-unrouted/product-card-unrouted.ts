@@ -17,14 +17,11 @@ export class ProductCardUnroutedComponent {
 
   constructor(private router: Router) {}
 
-  irAProductDetail() {
-    this.router.navigate(['/reyna/product', this.product.id]);
-  }
-
    abrirDetalle(): void {
     this.dialog.open(ProductDetailModalUnrouted, {
       width: '1200px',
-      data: this.product,
+      height: '600px',
+      data: this.product.id, // ahora paso a pedir solo el ID en vez del objeto completo
     });
   }
 }
