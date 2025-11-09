@@ -1,20 +1,30 @@
-<app-header-unrouted></app-header-unrouted>
-<main>
-  <h2>Catálogo de productos</h2>
-  <div class="busqueda mb-3">
+<header>
+  <app-header-unrouted></app-header-unrouted>
+</header>
+
+<main class="container mt-4">
+  <h1>Entrega Reyna</h1>
+
+  <!-- Componente de búsqueda -->
+  <app-product-search-unrouted [allProducts]="products"></app-product-search-unrouted>
+</main>
+
+
+
+  <!-- <div class="busqueda mb-3">
     <input
       type="text"
       class="form-control"
       placeholder="Buscar productos..."
       [(ngModel)]="busqueda"
     />
-  </div>
- <div class="row g-3">
+  </div> -->
+ <!-- <div class="row g-3">
   @for (product of filtrarProducts; track product.id) {
     <div class="col-md-3">
       <app-product-card-unrouted [product]="product"></app-product-card-unrouted>
     </div>
   }
-</div>
-</main>
+</div> -->
+
 <footer></footer>

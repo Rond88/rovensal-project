@@ -35,5 +35,5 @@ El objetivo es practicar:
 ### Endpoints usados:
 - `/products` → obtener lista de productos  
 - `/products/:id` → obtener detalle de un producto  
-- `/products/category/:category` → productos por categoría  
+- `/products/category/:category` → productos por categoría, hago uso también con esto de ruta parametrizada
 - `/categories` → lista de categorías disponibles  
