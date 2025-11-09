@@ -3,11 +3,41 @@
 </header>
 
 <main class="container mt-4">
+
+  <!-- Banner visual -->
+  <div class="text-center mb-4">
+    <h1>Bienvenidos a Reyna Store</h1>
+    <p>Explora nuestros productos destacados y encuentra lo que buscas</p>
+  </div>
+
+  <!-- Formulario de búsqueda -->
+  <app-product-search-unrouted [allProducts]="products"></app-product-search-unrouted>
+
+  <!-- Productos destacados -->
+  <section class="mt-5">
+    <h2>Productos Destacados</h2>
+    <div class="row g-3">
+      @for (product of featuredProducts; track product.id) {
+        <div class="col-md-4">
+          <app-product-card-unrouted [product]="product"></app-product-card-unrouted>
+        </div>
+      }
+    </div>
+  </section>
+
+</main>
+
+
+
+<!-- <header>
+  <app-header-unrouted></app-header-unrouted>
+</header>
+
+<main class="container mt-4">
   <h1>Entrega Reyna</h1>
 
-  <!-- Componente de búsqueda -->
   <app-product-search-unrouted [allProducts]="products"></app-product-search-unrouted>
-</main>
+</main> -->
 
 
 

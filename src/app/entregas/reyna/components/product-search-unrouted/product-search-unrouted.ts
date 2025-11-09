@@ -12,14 +12,15 @@ import { ProductCardUnroutedComponent } from '../product-card-unrouted/product-c
   styleUrls: ['./product-search-unrouted.css'],
 })
 export class ProductSearchUnroutedComponent {
-  private productsCargados: Product[] = [];
+  private _allProducts: Product[] = [];
 
   @Input() 
   set allProducts(products: Product[]) {
-    this.productsCargados = products;
-    // Cada vez que el padre envía productos, inicializamos filteredProducts
-    this.filteredProducts = [...this.productsCargados];
+    this._allProducts = products;
+    this.filteredProducts = [...this._allProducts];
   }
+
+  @Input() categoryFilter: string | null = null;
 
   filteredProducts: Product[] = [];
   searchForm: FormGroup;
@@ -32,13 +33,22 @@ export class ProductSearchUnroutedComponent {
     });
   }
 
+  ngOnChanges(): void {
+    this.applyFilters();
+  }
+
   onSearch(): void {
+    this.applyFilters();
+  }
+
+  private applyFilters(): void {
     const { name, minPrice, maxPrice } = this.searchForm.value;
 
-    this.filteredProducts = this.productsCargados.filter(p => {
+    this.filteredProducts = this._allProducts.filter(p => {
       return (!name || p.title.toLowerCase().includes(name.toLowerCase()))
         && (!minPrice || p.price >= +minPrice)
-        && (!maxPrice || p.price <= +maxPrice);
+        && (!maxPrice || p.price <= +maxPrice)
+        && (!this.categoryFilter || p.category === this.categoryFilter);
     });
   }
 }

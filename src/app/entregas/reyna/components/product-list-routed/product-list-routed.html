@@ -1,16 +1,17 @@
 <app-header-unrouted></app-header-unrouted>
 <div class="container mt-4">
-  <h2 class="text-center mb-4">Catálogo de productos</h2>
+  <h1>Productos</h1>
 
-  @if (products.length === 0) {
-  <p class="text-center text-muted">Cargando productos...</p>
-  } @else {
-  <div class="row">
-    @for (product of products; track product.id) {
-    <div class="col-md-3 mb-4">
-      <app-product-card-unrouted [product]="product"></app-product-card-unrouted>
-    </div>
-    }
+  <div class="mb-4">
+    <label for="categorySelect" class="form-label">Filtrar por categoría:</label>
+    <select id="categorySelect" class="form-select" [(ngModel)]="selectedCategory">
+      <option [ngValue]="null">Todas</option>
+      @for(category of categories; track category) {
+      <option [ngValue]="category">{{ category | titlecase }}</option>
+      }
+    </select>
   </div>
-  }
+
+  <app-product-search-unrouted [allProducts]="products" [categoryFilter]="selectedCategory">
+  </app-product-search-unrouted>
 </div>
