@@ -1,11 +1,11 @@
 # Proyecto Angular - [Reyna]
 
 Este proyecto forma parte del repositorio [rovensal](https://github.com/rafaelaznar/rovensal).  
-Se encuentra dentro de la carpeta `/src/app/[tu-apellido]` y **no modifica ningún archivo común del proyecto**, excepto la configuración de rutas para incluir mi componente principal.
+Se encuentra dentro de la carpeta `/src/app/reyna`.
 
 ---
 
-## 📦 Descripción general
+## Descripción general
 
 Aplicación web desarrollada con **Angular standalone**, que consume la **FakeStore API** para mostrar una lista de productos, su detalle individual y categorías.
 
@@ -16,18 +16,10 @@ El objetivo es practicar:
 - Comunicación entre componentes  
 - Control del flujo en la plantilla (`@if`, `@for`)  
 - Tipado fuerte en TypeScript  
-
+- Angular Material y Bootstrap para diseño y modales
 ---
 
-## 🧱 Estructura del proyecto
-- components
-
-- model
-
-- service
-    - category
-    - product
-## 🌐 API utilizada
+## API utilizada
 
 **FakeStore API**  
 🔗 https://fakestoreapi.com/

@@ -12,12 +12,13 @@ import { ProductCardUnroutedComponent } from '../product-card-unrouted/product-c
   styleUrls: ['./product-search-unrouted.css'],
 })
 export class ProductSearchUnroutedComponent {
-  private _allProducts: Product[] = [];
+  private products: Product[] = [];
+  priceRangeInvalid: boolean = false;
 
-  @Input() 
+  @Input()
   set allProducts(products: Product[]) {
-    this._allProducts = products;
-    this.filteredProducts = [...this._allProducts];
+    this.products = products;
+    this.filteredProducts = [...this.products];
   }
 
   @Input() categoryFilter: string | null = null;
@@ -39,16 +40,23 @@ export class ProductSearchUnroutedComponent {
 
   onSearch(): void {
     this.applyFilters();
+    this.priceRangeInvalid =
+      this.searchForm.value.minPrice &&
+      this.searchForm.value.maxPrice &&
+      +this.searchForm.value.minPrice > +this.searchForm.value.maxPrice;
+    if (this.priceRangeInvalid) return;
   }
 
   private applyFilters(): void {
     const { name, minPrice, maxPrice } = this.searchForm.value;
 
-    this.filteredProducts = this._allProducts.filter(p => {
-      return (!name || p.title.toLowerCase().includes(name.toLowerCase()))
-        && (!minPrice || p.price >= +minPrice)
-        && (!maxPrice || p.price <= +maxPrice)
-        && (!this.categoryFilter || p.category === this.categoryFilter);
+    this.filteredProducts = this.products.filter((p) => {
+      return (
+        (!name || p.title.toLowerCase().includes(name.toLowerCase())) &&
+        (!minPrice || p.price >= +minPrice) &&
+        (!maxPrice || p.price <= +maxPrice) &&
+        (!this.categoryFilter || p.category === this.categoryFilter)
+      );
     });
   }
 }
