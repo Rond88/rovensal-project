@@ -17,6 +17,9 @@ import { SilvestreComponent } from './entregas/silvestre/component/silvestreComp
 import { SoaresComponent } from './entregas/soares/component/soaresComponent/soaresComponent';
 import { UskiComponent } from './entregas/uski/component/uskiComponent/uskiComponent';
 import { ZanonComponent } from './entregas/zanon/component/zanonComponent/zanonComponent';
+import { DinoComponent } from './entregas/calinescu/component/dino-component/dino-component';
+import { DinoDetails } from './entregas/calinescu/component/dino-details/dino-details';
+import { Favoritos } from './entregas/calinescu/component/favoritos/favoritos';
 import { HomePageComponent } from './entregas/sempertegui/component/homePageComponent/homePageComponent';
 import { CatalogPageComponent } from './entregas/sempertegui/component/catalogPageComponent/catalogPageComponent';
 import { ProductPageComponent } from './entregas/sempertegui/component/productPageComponent/productPageComponent';
@@ -35,6 +38,16 @@ export const routes: Routes = [
     { path: 'home', component: Home },
     { path: 'alcalde', component: AlcaldeComponent },
     { path: 'alcanyiz', component: AlcanyizComponent },
+    { path: 'alfonso', component: AlfonsoComponent },
+    { 
+        path: 'calinescu', 
+        component: CalinescuComponent,
+        children: [
+            { path: 'lista', component: DinoComponent },
+            { path: 'dino-details/:nombre', component: DinoDetails },
+            { path: 'favoritos', component: Favoritos }
+        ]
+    },
     {
         path: 'alfonso',
         loadComponent: () => import('./entregas/alfonso/component/alfonsoComponent/alfonsoComponent').then(m => m.AlfonsoComponent),
